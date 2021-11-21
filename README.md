@@ -33,7 +33,7 @@ OS：Linux(CentOS)  <br>
 ライブラリ：jQuery  <br>
 IDE：Cloud9 <br>
 
-WBS：https://docs.google.com/spreadsheets/d/1YdDXjaJGyTgUCGlh3BokMtQ_kATRtTyq6VSmxwipIUs/edit?usp=sharing <br>
+WBS：https://docs.google.com/spreadsheets/d/1VY1yfPHYBgg8bUDmDPqpAJgTdNJm5O0qcBO0CGppSHo/edit?usp=sharing <br>
 詳細設計書：https://docs.google.com/spreadsheets/d/1INtHn4JiglGPtT288WeqPZiCnyyebnnd/edit?usp=sharing&ouid=103167803846542152266&rtpof=true&sd=true <br>
 チャレンジ要素一覧：https://docs.google.com/spreadsheets/d/1hUu-aWziUN1vKCIOmZr2z73-DxyeoesY3QNGJmiuZ1Q/edit?usp=sharing <br>
 テーブル定義書：https://docs.google.com/spreadsheets/d/1phl4NIbmTNHvSOiteqkBf_D142ha9bwdFoEfP3GlJ44/edit?usp=sharing <br>
