@@ -1,0 +1,18 @@
+<%= render :partial => "/list" %>
+<div class="container">
+  <div class="row">
+    <div class="col-3">
+      <% @projects.each do |project| %>
+      <%= link_to projects_all(project) do %>
+      <div class="col-3 border" style="background-color:#ffffff;">
+      <ul>
+        <li><%= project.start_time.strftime("%m-%d") %></li>
+        <li><%= project.title %></li>
+        <li><%= project.image %></li>
+      </ul>
+      </div>
+      <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

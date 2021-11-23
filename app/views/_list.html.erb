@@ -9,7 +9,6 @@
     <ul class="nav pull-right nav-pills">
     <% if user_signed_in? %>
       <li class="nav-list"><%= link_to "プロフィール", class:'btn btn-outline-dark' %></li>
-      <li class="nav-list"><%= link_to "SDGsについて", sdgs_path, class:'btn btn-outline-dark' %></li>
       <li class="nav-list"><%= link_to "プロジェクト",class:'btn btn-outline-dark' %></li>
       <li class="nav-list"><%= link_to "sign out", destroy_user_session_path, method: :delete, class:"btn btn-outline-dark" %></li>
     <% else %>

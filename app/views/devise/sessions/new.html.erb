@@ -8,16 +8,16 @@
 
   <%= form_with model: @user, url: user_session_path, local: true do |f| %>
   
-  <div class="field">
-    <%= f.label :出席番号 %><br />
-    <%= f.text_field :number, autofocus: true %>
-  </div>
-  
-  
   <!--<div class="field">-->
-    <%#= f.label :email %><br />
-    <%#= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%#= f.label :出席番号 %><br />
+    <%#= f.text_field :number, autofocus: true %>
   <!--</div>-->
+  
+  
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
 
   <div class="field">
     <%= f.label :パスワード %><br />

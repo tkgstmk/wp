@@ -1,0 +1,41 @@
+<%= render :partial => "/list" %>
+<div class="container">
+  
+  <div class="row">
+    <p>
+      <%= @user.name %>さん<br>
+      <%= @user.goal %><br>
+      <%#= @projects.id%><%#= current_user.books.where('created_at > ?', Date.today).count %> <br>
+      <%#= link_to 'マイプロジェクト一覧', root_path %>
+    </p>
+  </div>
+  
+  <div class="row">
+    <div class="col-10">
+    <%= form_with(model: @project, local: true) do |f| %>
+    
+      <%= f.start_time.strftime("%m-%d") %>
+    
+      <div class="title">
+        <div class="form-tag">タイトル</div>
+        <%= f.text_field :title %>
+      </div>
+      
+      <div class="content">
+        <div class="form-tag">内容</div>
+        <%= f.text_field :explanation %>
+      </div>
+        <div class="image">
+        <div class="form-tag">写真</div>
+        <%= f.attachment_field :image %>
+      </div>
+      <div class="submit">
+        <%= f.submit %>
+      </div>
+    <% end %>
+    </div>
+  </div>
+  
+</div>
+
+

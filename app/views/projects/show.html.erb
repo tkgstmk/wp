@@ -1,0 +1,32 @@
+<%= render :partial => "/list" %>
+
+<p id="notice"><%= notice %></p>
+<div class="show">
+
+<div class="container">
+  <p>
+  <strong>日時</strong>
+  <%= @project.start_time.strftime("%m-%d") %>
+  </p>
+
+  <p>
+    <strong>タイトル</strong>
+    <%= @project.title %>
+  </p>
+
+  <p>
+    <strong>内容</strong>
+    <%= @project.explanation %>
+  </p>
+
+  <p>
+    <strong>写真</strong>
+    <%= @project.image %>
+  </p>
+
+
+  <%= link_to '編集', edit_project_path(@project) %>
+  <%= link_to '消去',project_path(@project.id), method: :delete, data: { confirm: '本当に?' } %>
+  <%= link_to '戻る', projects_path %>
+  
+</div>

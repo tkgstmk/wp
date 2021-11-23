@@ -1,0 +1,76 @@
+<%= render :partial => "/list" %>
+<div class="container">
+  
+  <div class="row">
+    <p>
+      <%= @user.name %>さん<br>
+      <%= @user.goal %><br>
+      <%#= @projects.id%><%#= current_user.books.where('created_at > ?', Date.today).count %> <br>
+      <%#= link_to 'マイプロジェクト一覧', root_path %>
+    </p>
+  </div>
+  
+  <div class="row">
+    <!--カレンダー-->
+    <div class="col-6 pr-3 pl-3" style="background-color:#ffffff;">
+	   <%#= render :partial => "calender", :locals => { projects: @projects, project: @project } %>
+      <%= month_calendar events: @projects do |date, projects| %>
+        <%= date.day %>
+      
+        <% @projects.each do |project| %>
+          <div>
+            <%= link_to project.title, project %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+    
+    <!--投稿-->
+    <div class="col-6 pl-6">
+      <%= form_with(model: @project, local: true) do |f| %>
+        <div class="time">
+          <div class="form-tag">★︎活動日</div>
+          <%= f.datetime_select :image_id %>
+        </div>
+        
+        <div class="title mt-2">
+          <div class="form-tag">★タイトル</div>
+          <%= f.text_field :title %>
+        </div>
+        
+        <div class="content mt-2">
+          <div class="form-tag">★内容</div>
+          <%= f.text_field :explanation %>
+        </div>
+        
+        <div>
+          <div class="form-tag mt-2">★写真</div>
+          <%= f.attachment_field :image %>
+        </div>
+
+        <div class="submit mt-3 text-right">
+          <%= f.submit "投稿する", class:'btn btn-warning' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  
+  <div class="row pt-4">
+   <div><p><b>マイ・プロジェクト一覧</b></p></div>
+  </div>
+  <div class="row">
+    <% @projects.each do |project| %>
+    <%= link_to project_path(project) do %>
+    <div class="col-3 border" style="background-color:#ffffff;">
+      <ul>
+        <li><%= project.start_time.strftime("%m-%d") %></li>
+        <li><%= project.title %></li>
+        <li><%= project.image %></li>
+      </ul>
+    </div>
+    <% end %>
+    <% end %>
+  </div>
+
+
+</div>
