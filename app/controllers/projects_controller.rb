@@ -6,18 +6,22 @@ class ProjectsController < ApplicationController
     @project = Project.new
   end
   
-  def create!
+  def create
     @project = Project.new(project_params)
+    @project.user_id = current_user.id
     if @project.save
     redirect_to projects_path
     else
       # @project= Project.all
+      @user = current_user
+      @projects = current_user.projects
       render :index
     end
   end
 
   def show
     @project = Project.find(params[:id])
+    @user = current_user
   end
   
   
@@ -30,6 +34,7 @@ class ProjectsController < ApplicationController
 
   def edit
     @project = Project.find(params[:id])
+    @user = current_user
   end
 
   def update
@@ -41,17 +46,11 @@ class ProjectsController < ApplicationController
     end
   end
   
-  def all
-    @projects = Project.all
-  end
-  
-  def one
-    @project = Project.find(params[:id])
-  end
+ 
   
   
   
   def project_params
-    params.require(:project).permit(:user_id, :title, :explanation, :image_id)
+    params.require(:project).permit(:user_id, :title, :explanation, :image, :start_time)
   end
 end

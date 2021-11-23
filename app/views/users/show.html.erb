@@ -1,0 +1,37 @@
+<%= render :partial => "/list" %>
+
+<p id="notice"><%#= notice %></p>
+  
+  <div class="container">
+
+    <div class="row" >
+      <div class="col-7 mt-3 pt-4 pl-5 pb-4" style="background-color:white;">
+        <table>
+          <tr>
+            <td>名前</td>
+            <td>　<%= @user.name %></td>
+          </tr>
+          <tr>
+            <td>目標</td>
+            <td>　<%= @user.goal %></td>
+          </tr>
+          <tr>
+            <td>メールアドレス</td>
+            <td>　<%= @user.email %></td>
+          </tr>
+        </table>
+      </div>
+
+    </div>
+    
+    <!--ボタン-->
+    <div class="row mt-5", style="text-align:center;">
+      <!--<div style="text-align:center;">-->
+      <div class="mr-1"><%= link_to '編集', edit_user_path(@user),  class:'btn btn-primary' %></div>
+      <%#= link_to '消去',project_path(@project.id), method: :delete, data: { confirm: '本当に?' }, class:'btn btn-danger' %>
+      <div><%= link_to '戻る', projects_path, class:'btn btn-success' %></div>
+      <!--</div>-->
+    </div>
+
+
+</div>

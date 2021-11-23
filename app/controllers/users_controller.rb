@@ -6,16 +6,29 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
   end
+  
+  def edit
+    @user = User.find(params[:id])
+  end
+  
+  # def edit
+  #   @project = Project.find(params[:id])
+  #   @user = current_user
+  # end
 
   
   def update
     @user = User.find(params[:id])
-    @user.update(user_params)
-    redirect_to projects_path
+    if @user.update(user_params)
+      redirect_to user_path
+    elsif
+      render :edit
+    end
   end
+
   
   protected
-  def project_params
+  def user_params
     params.require(:user).permit(:goal, :name, :email)
   end
 end

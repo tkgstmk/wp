@@ -1,32 +1,52 @@
 <%= render :partial => "/list" %>
-
 <p id="notice"><%= notice %></p>
-<div class="show">
-
-<div class="container">
-  <p>
-  <strong>日時</strong>
-  <%= @project.start_time.strftime("%m-%d") %>
-  </p>
-
-  <p>
-    <strong>タイトル</strong>
-    <%= @project.title %>
-  </p>
-
-  <p>
-    <strong>内容</strong>
-    <%= @project.explanation %>
-  </p>
-
-  <p>
-    <strong>写真</strong>
-    <%= @project.image %>
-  </p>
-
-
-  <%= link_to '編集', edit_project_path(@project) %>
-  <%= link_to '消去',project_path(@project.id), method: :delete, data: { confirm: '本当に?' } %>
-  <%= link_to '戻る', projects_path %>
   
+  <div class="container">
+    
+    <div class="row">
+    <p>
+      <%= @user.name %>さん<br>
+      <%= @user.goal %>
+    </p>
+  </div>
+  
+    <!--投稿内容-->
+    <div class="row" >
+      <div class="col-7 mt-3 pt-4 pl-5 pb-4" style="background-color:white;">
+        
+        <table>
+          <tr>
+            <td><%= @project.start_time.strftime("%y-%m-%d") %></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td><b>タイトル</b></td>
+            <td><b>　<%= @project.title %></b></td>
+          </tr>
+          <tr>
+            <td><b>内容</b></td>
+            <td><b>　<%= @project.explanation %></b></td>
+          </tr>
+        </table>
+      </div>
+              
+      <div class="col-3 mt-3 pt-4">
+        <p>
+          <!--<strong>写真</strong>-->
+          <%#= @project.image %><%= attachment_image_tag @project, :image, size: "100x100", fallback: "no_image.jpg" %>
+        </p>
+      </div>
+      
+    </div>
+    
+    <!--ボタン-->
+    <div class="row mt-5" style="text:center;">
+      <!--<div style="text-align:center;">-->
+      <div class="mr-1"><%= link_to '編集', edit_project_path(@project), class:'btn btn-primary' %></div>
+      <div class="mr-1"><%= link_to '消去',project_path(@project.id), method: :delete, data: { confirm: '本当に?' }, class:'btn btn-danger' %></div>
+      <div><%= link_to '戻る', projects_path, class:'btn btn-success' %></div>
+      <!--</div>-->
+    </div>
+
+
 </div>

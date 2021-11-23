@@ -3,17 +3,17 @@
   <!--ロゴ-->
   <%#= image_tag 'logo.jpg', size: "80x80" %>
   <%#= javascript_tag '/packs/home', 'data-turbolinks-track': 'reload' %>
-  <%= link_to "😊ワクワクプロジェクト"%>
+  <%= link_to "😊ワクワクプロジェクト", projects_path %>
 
   <div>
     <ul class="nav pull-right nav-pills">
     <% if user_signed_in? %>
-      <li class="nav-list"><%= link_to "プロフィール", class:'btn btn-outline-dark' %></li>
-      <li class="nav-list"><%= link_to "プロジェクト",class:'btn btn-outline-dark' %></li>
-      <li class="nav-list"><%= link_to "sign out", destroy_user_session_path, method: :delete, class:"btn btn-outline-dark" %></li>
+      <li class="nav-list mr-1"><%= link_to "プロフィール", user_path(current_user), class:'btn btn-outline-dark' %></li>
+      <li class="nav-list mr-1"><%= link_to "プロジェクト",homes_path, class:'btn btn-outline-dark' %></li>
+      <li class="nav-list"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"btn btn-outline-dark" %></li>
     <% else %>
-      <li class="nav-list"><%= link_to "sign up", new_user_registration_path, class:"btn btn-outline-dark" %></li>
-      <li class="nav-list"><%= link_to "sign in", new_user_session_path, class:"btn btn-outline-dark" %></li>
+      <li class="nav-list mr-1"><%= link_to "新規登録", new_user_registration_path, class:"btn btn-outline-dark" %></li>
+      <li class="nav-list"><%= link_to "ログイン", new_user_session_path, class:"btn btn-outline-dark" %></li>
     <% end %>
     </ul>
   </div>

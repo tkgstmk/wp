@@ -14,7 +14,9 @@
     <div class="col-10">
     <%= form_with(model: @project, local: true) do |f| %>
     
-      <%= f.start_time.strftime("%m-%d") %>
+      <%#= f.start_time.strftime("%y-%m-%d") %>
+      <%= @project.start_time.strftime("%y-%m-%d") %>
+      <%#= f.datetime_field :start_time %>
     
       <div class="title">
         <div class="form-tag">タイトル</div>
@@ -27,7 +29,11 @@
       </div>
         <div class="image">
         <div class="form-tag">写真</div>
-        <%= f.attachment_field :image %>
+        <%#= f.attachment_field :image %>
+        <%#= attachment_image_tag @project, :image, size: "100x100", fallback: "no_image.jpg" %>
+        <%#= f.attachment_field :image, size: "100x120", fallback: "noimage.png" %>
+        
+        <%= f.attachment_field :image, size: "100x100", fallback: "no_image.jpg"%>
       </div>
       <div class="submit">
         <%= f.submit %>
