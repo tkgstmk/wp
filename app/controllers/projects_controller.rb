@@ -1,9 +1,11 @@
 class ProjectsController < ApplicationController
   def index
     @user = current_user
-    @projects = current_user.projects
+    @projects = current_user.projects.order(start_time :desc)
+    
     # ↑後でcurrent_user
     @project = Project.new
+    # @tweets = Tweet.all.order(created_at: :desc) #=>新しい順の投稿一覧
   end
   
   def create

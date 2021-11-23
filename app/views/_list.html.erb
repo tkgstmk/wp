@@ -3,7 +3,16 @@
   <!--ロゴ-->
   <%#= image_tag 'logo.jpg', size: "80x80" %>
   <%#= javascript_tag '/packs/home', 'data-turbolinks-track': 'reload' %>
-  <%= link_to "😊ワクワクプロジェクト", projects_path %>
+  
+  <% if user_signed_in? %>
+    <%= link_to projects_path do %>
+      <p>　　　　😊<br>ワクワクプロジェクト</p>
+    <% end %>
+  <% else %>
+    <%= link_to new_user_session_path do %>
+      <p>　　　　😊<br>ワクワクプロジェクト</p>
+    <% end %>
+  <% end %>
 
   <div>
     <ul class="nav pull-right nav-pills">
