@@ -27,7 +27,7 @@
     <!--ボタン-->
     <div class="row mt-5", style="text-align:center;">
       <!--<div style="text-align:center;">-->
-      <div class="mr-1"><%= link_to '編集', edit_user_path(@user),  class:'btn btn-primary' %></div>
+      <div class="mr-1"><%= link_to '編集', edit_user_path(@user), 'data-turbolinks': false, class:'btn btn-primary' %></div>
       <%#= link_to '消去',project_path(@project.id), method: :delete, data: { confirm: '本当に?' }, class:'btn btn-danger' %>
       <div><%= link_to '戻る', projects_path, class:'btn btn-success' %></div>
       <!--</div>-->

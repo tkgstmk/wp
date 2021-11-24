@@ -1,7 +1,7 @@
 class HomesController < ApplicationController
 
   def index
-    @projects = Project.all
+    @projects = Project.all.order(start_time: :desc)
   end
   
   def show
